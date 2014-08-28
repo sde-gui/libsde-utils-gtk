@@ -14,15 +14,6 @@ pkg_check_modules(sde_utils REQUIRED sde-utils-1.0>=0.1)
 
 ##############################################################################
 
-add_library(sde-utils-gtk-1.0 SHARED
-    gdkrgba.c
-    gdk-pixbuf.c
-    icon-grid.c
-    config.c
-)
-
-##############################################################################
-
 add_definitions(
     -DPACKAGE_INSTALLATION_PREFIX=\"${CMAKE_INSTALL_PREFIX}\"
     ${gtk2_CFLAGS}
@@ -34,6 +25,13 @@ link_directories(
     ${gtk2_pixbuf_LIBRARY_DIRS}
     ${gdk_pixbuf_LIBRARY_DIRS}
     ${sde_utils_LIBRARY_DIRS}
+)
+
+add_library(sde-utils-gtk-1.0 SHARED
+    gdkrgba.c
+    gdk-pixbuf.c
+    icon-grid.c
+    config.c
 )
 
 target_link_libraries(sde-utils-gtk-1.0
