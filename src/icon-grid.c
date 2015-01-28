@@ -746,6 +746,11 @@ extern void icon_grid_set_separator_size(IconGrid * ig, int separator_size)
 /* Deallocate the icon grid structures. */
 void icon_grid_free(IconGrid * ig)
 {
+    g_signal_handlers_disconnect_by_func(G_OBJECT(ig->widget), G_CALLBACK(icon_grid_size_request), (gpointer) ig);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(ig->widget), G_CALLBACK(icon_grid_remove_child), (gpointer) ig);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(ig->container), G_CALLBACK(icon_grid_size_request), (gpointer) ig);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(ig->container), G_CALLBACK(icon_grid_size_allocate), (gpointer) ig);
+
     if (ig->placement_idle_cb)
     {
         g_source_remove(ig->placement_idle_cb);
@@ -760,6 +765,7 @@ void icon_grid_free(IconGrid * ig)
     while (ige != NULL)
     {
         IconGridElement * ige_succ = ige->flink;
+        g_signal_handlers_disconnect_by_func(G_OBJECT(ige->widget), G_CALLBACK(icon_grid_element_size_request), (gpointer) ige);
         g_free(ige);
         ige = ige_succ;
     }
