@@ -36,4 +36,6 @@ GdkPixbuf * su_gdk_pixbuf_scale_in_rect(GdkPixbuf * pixmap,
 void        su_gdk_pixbuf_get_color_sample(GdkPixbuf *pixbuf, GdkColor * c1, GdkColor * c2);
 GdkPixbuf * su_gdk_pixbuf_composite_thumb_icon(GdkPixbuf * thumb, GdkPixbuf * icon, int size, int icon_size);
 
+GdkPixbuf * su_gdk_pixbuf_load_icon(const char* name, int width, int height, gboolean use_fallback, gboolean * themed);
+
 #endif
