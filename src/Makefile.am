@@ -25,7 +25,7 @@ libsde_utils_gtk_0_la_LIBADD = \
 
 libsde_utils_gtk_0_la_LDFLAGS = \
 	-no-undefined \
-	-export-symbols-regex ^su \
+	-export-symbols-regex '^(su|icon|gdk)' \
 	-version-info $(ABI_VERSION) \
 	$(NULL)
 
