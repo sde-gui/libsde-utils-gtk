@@ -28,7 +28,7 @@
 #include <errno.h>
 #include <math.h>
 
-#include "gdkrgba.h"
+#include <sde-utils-gtk/gdkrgba.h>
 
 //#include "fallback-c89.c"
 

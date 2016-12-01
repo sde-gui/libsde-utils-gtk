@@ -19,7 +19,7 @@
 
 #include <gtk/gtk.h>
 
-#include "icon-grid.h"
+#include <sde-utils-gtk/icon-grid.h>
 
 //#define DEBUG
 
