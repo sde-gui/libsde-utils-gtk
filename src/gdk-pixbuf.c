@@ -510,6 +510,8 @@ GdkPixbuf * su_gdk_pixbuf_load_icon(const char* name, int width, int height, gbo
         icon = load_icon_from_theme(theme, "application-x-executable", width, height);
         if (icon == NULL)
             icon = load_icon_from_theme(theme, "gnome-mime-application-x-executable", width, height);
+        if (icon == NULL)
+            icon = load_icon_from_theme(theme, GTK_STOCK_EXECUTE, width, height);
     }
     return icon;
 }
