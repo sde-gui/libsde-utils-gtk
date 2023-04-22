@@ -12,7 +12,7 @@
 /config.status
 /configure
 /libtool
-/sde-utils-0.pc
+/sde-utils-gtk-0.pc
 /stamp-h1
 Makefile
 Makefile.in
